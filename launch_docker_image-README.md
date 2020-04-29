@@ -54,5 +54,5 @@ Create the docker service which runs the image:
 Check the logs, to confirm the arguments and success:
 
 "sudo docker ps"
-Grab the CONTAINER ID
+Grab the CONTAINER ID and run
 "sudo docker logs <CONTAINER ID>"
