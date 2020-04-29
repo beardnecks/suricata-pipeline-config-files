@@ -1,5 +1,5 @@
-# Downloading and launching Suricata docker image  
-## To download the docker image stored in the ECR:
+# Downloading and launching Suricata docker image  <br />
+## To download the docker image stored in the ECR: <br />
 
 
 Authenticate with AWS CLI and do a docker login
@@ -54,5 +54,5 @@ Create the docker service which runs the image:
 Check the logs, to confirm the arguments and success:
 
 "sudo docker ps"
-Grab the CONTAINER ID and run
-"sudo docker logs <CONTAINER ID>" 
+Grab the CONTAINER ID and run the command:
+"sudo docker logs <CONTAINER ID>"
