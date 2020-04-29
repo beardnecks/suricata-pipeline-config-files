@@ -45,7 +45,7 @@ Initiate a docker swarm to use docker secret (creates single node swarm):
 "Sudo docker swarm init "
 
 Create a docker secret:
-"printf "<content/key>" | sudo docker secret create <secret name> " - (NOTE! include the dash)
+"printf "<content/key>" | sudo docker secret create <secret name> - "(NOTE! include the dash)
 
 Create the docker service which runs the image:
 "sudo docker service create --name <name of service> --secret <secret name> -e CONFIG_NAME="suricata-config-1.0-dev" -e BUCKET_URI="s3://suricata-config-bucket" -e ARGS="-i eth0" -e AWS_KEY="xxxxx" -e AWS_REGION="eu-west-1"  1234567891234.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest "
@@ -55,4 +55,4 @@ Check the logs, to confirm the arguments and success:
 
 "sudo docker ps"
 Grab the CONTAINER ID
-"sudo docker logs" <CONTAINER ID> 
+"sudo docker logs" <CONTAINER ID>
