@@ -1,5 +1,5 @@
-#Downloading and launching Suricata docker image
-##To download the docker image stored in the ECR:
+# Downloading and launching Suricata docker image  
+## To download the docker image stored in the ECR:
 
 
 Authenticate with AWS CLI and do a docker login
