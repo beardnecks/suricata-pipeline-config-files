@@ -26,30 +26,20 @@ sudo docker pull <aws id>.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest
 -e AWS_KEY=<aws_access_key_id>  (required) 
 -e AWS_REGION=<bucket region>  (optional) (default is "eu-west-1") 
 ```
-depending on method: 
+#### Depending on method: 
 
 ##### Method 1: 
 ```
--e AWS_SECRET_KEY=<aws_secret_access_key> (required) 
-```
-######OR 
-
-##### Method 2: 
-
-```
 --secret <secret name> (required) (must run in swarm) 
 ```
-###Method 1. Docker run with only environment variables: 
-* Run the image with the following command and arguments 
+##### OR 
+
+##### Method 2: 
 ```
-sudo docker run <arguments> <image name e.g. <aws id>.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest>
-```
-* example of full command: 
-```
-sudo docker run -it -e CONFIG_NAME="suricata-config-1.0-dev" -e BUCKET_URI="s3://suricata-config-bucket" -e ARGS="-i eth0" -e AWS_KEY="xxxxx" -e AWS_SECRET_KEY="xxxxxx" -e AWS_REGION="eu-west-1" 1234567891234.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest 
+-e AWS_SECRET_KEY=<aws_secret_access_key> (required) 
 ```
 
-###(Preferred) Method 2. Docker service with secret key, in Docker secret: 
+### (Preferred) Method 1. Docker service with secret key, in Docker secret: 
 * Initiate a docker swarm to use docker secret (creates single node swarm)
 ``` 
 Sudo docker swarm init 
@@ -63,6 +53,16 @@ printf "<content/key>" | sudo docker secret create <secret name> - (NOTE! includ
 * Create the docker service which runs the image: 
 ```
 sudo docker service create --name <name of service> --secret <secret name> -e CONFIG_NAME="suricata-config-1.0-dev" -e BUCKET_URI="s3://suricata-config-bucket" -e ARGS="-i eth0" -e AWS_KEY="xxxxx" -e AWS_REGION="eu-west-1"  1234567891234.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest 
+```
+
+### Method 2. Docker run with only environment variables: 
+* Run the image with the following command and arguments 
+```
+sudo docker run <arguments> <image name e.g. <aws id>.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest>
+```
+* example of full command: 
+```
+sudo docker run -it -e CONFIG_NAME="suricata-config-1.0-dev" -e BUCKET_URI="s3://suricata-config-bucket" -e ARGS="-i eth0" -e AWS_KEY="xxxxx" -e AWS_SECRET_KEY="xxxxxx" -e AWS_REGION="eu-west-1" 1234567891234.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest 
 ```
 
 * (optional) 
