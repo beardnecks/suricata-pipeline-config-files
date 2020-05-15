@@ -5,11 +5,11 @@
 ``` 
 aws configure
 ```
-fill in credential as instructed to.
+* fill in credential as instructed to.
 ```
 aws ecr get-login --no-include-email
 ```
-Copy the output of the command and run it as root.
+* Copy the output of the command and run it as root.
 
 * Pull the image with docker pull e.g. 
 ```
@@ -65,12 +65,11 @@ sudo docker run <arguments> <image name e.g. <aws id>.dkr.ecr.eu-west-1.amazon.c
 sudo docker run -it -e CONFIG_NAME="suricata-config-1.0-dev" -e BUCKET_URI="s3://suricata-config-bucket" -e ARGS="-i eth0" -e AWS_KEY="xxxxx" -e AWS_SECRET_KEY="xxxxxx" -e AWS_REGION="eu-west-1" 1234567891234.dkr.ecr.eu-west-1.amazon.com/alpine/suricata:latest 
 ```
 
-* (optional) 
-Check the logs, to confirm the arguments and success: 
+### (Optional) Check the logs, to confirm the arguments and success: 
 ```
 sudo docker ps
 ``` 
-Grab the CONTAINER ID and run the command:
+* Grab the CONTAINER ID and run the command:
 ``` 
 sudo docker logs <CONTAINER ID>
 ```
