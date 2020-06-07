@@ -49,6 +49,7 @@ RUN apk add file-dev \
     lz4-dev \
     nss-dev \
     pcre-dev \
+    py3-pip \
     py-yaml \
     python3 \
     rsync \
